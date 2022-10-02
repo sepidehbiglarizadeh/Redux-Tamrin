@@ -3,7 +3,7 @@ import { FETCH_POSTS_FAILURE, FETCH_POSTS_REQUEST, FETCH_POSTS_SUCCESS } from ".
   
   const initialState = {
     lodaing: false,
-    users: [],
+    data: {},
     error: "",
   };
   
@@ -12,9 +12,9 @@ import { FETCH_POSTS_FAILURE, FETCH_POSTS_REQUEST, FETCH_POSTS_SUCCESS } from ".
       case FETCH_POSTS_REQUEST:
         return { ...state, loading: true };
       case FETCH_POSTS_SUCCESS:
-        return { loading: false, error: "", users: action.payload };
+        return { loading: false, error: "", data: action.payload };
       case FETCH_POSTS_FAILURE:
-        return { loading: false, error: action.payload, users: [] };
+        return { loading: false, error: action.payload, data: {} };
       default:
         return state;
     }
